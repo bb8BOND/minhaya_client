@@ -23,9 +23,6 @@ import javax.swing.text.StyleConstants;
 
 public class ClientFrame extends javax.swing.JFrame{
 
-  private static final String SERVER_IP = "127.0.0.1"; // サーバーのIPアドレス
-  private static final int SERVER_PORT = 12052; // サーバーのポート番号
-
   private String serverAddress;
   private int serverPort;
 
@@ -42,26 +39,18 @@ public class ClientFrame extends javax.swing.JFrame{
 
     try {
         // サーバーに接続
-        Socket socket = new Socket(SERVER_IP, SERVER_PORT);
-        System.out.println("Connected to server.");
-
-        // メッセージ送信用のライターを作成
-        PrintWriter writer = new PrintWriter(socket.getOutputStream(), true);
-
-        // メッセージ受信用のリーダーを作成
-        BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-
-        // クイズに参加する処理を実行
-        joinQuiz(writer, reader);
-
-        // サーバーからのメッセージを受信して表示
-        String response = reader.readLine();
-        System.out.println("Server response: " + response);
-
-        // クイズが終了したらソケットを閉じる
-        socket.close();
-    } catch (IOException e) {
-        e.printStackTrace();
+        this.serverAddress = this.jTextField1.getText();
+        this.serverPort = Integer.parseInt(this.jTextField2.getText());
+        this.connectedSocket = new Socket(this.serverAddress,this.serverPort);
+        this.serverReader = new BufferedReader(new InputStreamReader(connectedSocket.getInputStream()));
+        this.serverWriter = new PrintWriter(new OutputStreamWriter(connectedSocket.getOutputStream()));
+    
+        this.printMessage("サーバに接続しました。");
+        joinQuiz(serverWriter,serverReader);
+        
+    } catch (IOException ex) {
+        this.printMessage("サーバに接続できませんでした。");
+        Logger.getLogger(ClientFrame.class.getName()).log(Level.SEVERE, null, ex);
     }
   }
 
@@ -121,7 +110,7 @@ public class ClientFrame extends javax.swing.JFrame{
   }
 
 @SuppressWarnings("unchecked")
-  // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+// <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
   private void initComponents() {
 
       jLabel1 = new javax.swing.JLabel();
@@ -260,6 +249,10 @@ public class ClientFrame extends javax.swing.JFrame{
       this.jTextArea2.setText(message);
   }
 
+  private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    this.connectServer();
+  }
+  
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JButton jButton1;
   private javax.swing.JButton jButton2;
