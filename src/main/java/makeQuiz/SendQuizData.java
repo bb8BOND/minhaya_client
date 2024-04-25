@@ -10,7 +10,7 @@ public class SendQuizData {
   public void SendData(String file_path, String genre, String question, String answer){
 
     try {
-      URL url = new URL("http://localhost/minhaya/quiz.php");
+      URL url = new URL("http://localhost/minhaya/quiz_post.php");
       HttpURLConnection connection = (HttpURLConnection) url.openConnection();
       connection.setRequestMethod("POST");
       connection.setDoOutput(true);
