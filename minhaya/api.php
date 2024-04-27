@@ -1,5 +1,5 @@
 <?php
-$servername = "localhost";
+$servername = "192.168.11.14";
 $username = "root";
 $password = "";
 $dbname = "quiz_db";
