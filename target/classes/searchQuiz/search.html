@@ -1,20 +1,51 @@
 <!DOCTYPE html>
 <head>
-
+   
 </head>
 <body>
     <h1>
         問題ジャンル
         <div class="select-box01">
-	        <select>
+            <select id="subject">
                 <option value="">選択してください</option>
-                <option value="">国語</option>
-                <option value="">数学</option>
-                <option value="">英語</option>
-                <option value="">理科</option>
-                <option value="">社会</option>
-                <option value="">専門</option>
-	        </select>
+                <option value="language">国語</option>
+                <option value="math">数学</option>
+                <option value="english">英語</option>
+            </select>
         </div>
     </h1>
+
+    <div id="languageProblem" class="problem">
+        <h2>国語の問題</h2>
+        <p>一瞥の意味は何か</p>
+    </div>
+    <div id="mathProblem" class="problem">
+        <h2>数学の問題</h2>
+        <p>世界は微分で記述されるが、読み解く方法は何か</p>
+    </div>
+    <div id="englishProblem" class="problem">
+        <h2>英語の問題</h2>
+        <p>pcはpersonal computerの略だが、AIは何の略か。</p>
+    </div>
+
+    <script>
+        // 初期状態では問題文を非表示にする
+        var problems = document.querySelectorAll('.problem');
+        problems.forEach(function(problem) {
+            problem.style.display = 'none';
+        });
+
+        document.getElementById('subject').addEventListener('change', function() {
+            var selectedSubject = this.value;
+            // 全ての問題文を非表示にする
+            problems.forEach(function(problem) {
+                problem.style.display = 'none';
+            });
+            // 選択された教科の問題文を表示する
+            if (selectedSubject) {
+                document.getElementById(selectedSubject + 'Problem').style.display = 'block';
+            }
+        });
+    </script>
+
 </body>
