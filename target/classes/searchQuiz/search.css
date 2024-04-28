@@ -24,3 +24,7 @@
 .problem p {
     font-size: 25px; /* 例として18pxに指定 */
 }
+
+body{
+	background: #647a99bb;
+}

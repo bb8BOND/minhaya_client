@@ -30,6 +30,7 @@ h2 {
 
   body { 
     background-color: rgb(176, 184, 209);
+  }
 
     input {
       margin: 0.4rem 0;
@@ -49,7 +50,7 @@ h2 {
     text-align: center;
     overflow: hidden;
     font-weight: min;
-    background-image: linear-gradient(#b0d3ec 0%, #3f5c73 100%);
+    background-image: linear-gradient(#7d8bf4 0%, #5e52e3 100%);
     text-shadow: 1px 1px 1px rgba(161, 197, 203, 0.218);
     box-shadow: inset 0 2px 0 rgba(142, 154, 169, 0.5), 0 2px 2px rgba(0, 0, 0, 0.19);
     border-bottom: solid 2px #000000;
