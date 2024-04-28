@@ -1,0 +1,30 @@
+.selectbox select {
+	-webkit-appearance: auto;
+	-moz-appearance: auto;
+	appearance: auto;
+	width: 130px;
+}
+
+.problem-table {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.problem {
+    background: pink;
+	width: 150px;
+	height: 150px;
+	position:static;
+}
+
+.problem h1 {
+    margin-top: 0;
+}
+
+.problem p {
+    font-size: 25px; /* 例として18pxに指定 */
+}
+
+body{
+	background: #647a99bb;
+}
