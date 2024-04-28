@@ -1,11 +1,4 @@
-.list-container {
-    width: 200px;
-    height: 150px;
+  #dropdown {
     overflow-y: scroll;
-    border: 1px solid #ccc;
-  }
-
-  .list-item {
-    padding: 5px;
-    cursor: pointer;
+    height: 30px;
   }
