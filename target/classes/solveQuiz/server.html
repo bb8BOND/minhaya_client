@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>WebSocket Client</title>
+    <link rel="stylesheet" href="stylesheet_SolveSelection.css">
+    <title>WebSocket Client solve select</title>
 </head>
-<body>
+<body text="#000000" style="background-color: lightblue;">
+    <h1>
+        解答モード
+    </h1>
+    <button id ="create_room" class="solve_selectStart">Start Room</button>
+    <button id ="join_room" class="solve_selectJoin" onclick="alert('joinButton clicked!')">Join Room</button>
     <script>
         var webSocket = new WebSocket("ws://192.168.11.14:8080/websocket");
 
@@ -34,6 +40,11 @@
         function requestNextQuestion() {
             webSocket.send("request_question");
         }
+
+        const button = document.getElementById('create_room');
+        button.addEventListener('click', function() {
+            window.location.href = "C:\\Users\\81802\\OneDrive\\ドキュメント\\GitHub\\minhaya_client\\src\\main\\java\\solveQuiz\\host.html";
+        });
     </script>
 </body>
 </html>
