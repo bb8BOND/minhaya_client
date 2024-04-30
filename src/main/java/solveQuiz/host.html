@@ -3,17 +3,25 @@
     <head>
         <link rel="stylesheet" href="stylesheet_SolveHost.css">
         <title>Client solve select host</title>
-        <style>
-            h1 {
-                text-align: center;
-            }
-        </style>    
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $.ajax({
+                    url: "api.php",
+                    dataType: "json",
+                    success: function(data) {
+                        // 取得したデータを処理するためのコード
+                        console.log(data);
+                    }
+                });
+            });
+        </script>
     </head>
     <body>
         <h1>
             ルーム作成
         </h1>
-        <button id = "kari" onclick="GetElement()">
         </button>
         <select id="dropdown" onclick="displaySelectedItem()">
             <option value="item1">-</option>
@@ -21,31 +29,13 @@
             <option value="item3">数学</option>
             <option value="item4">英語</option>
         </select>
-        <br>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        
+
         <script>
             function displaySelectedItem() {
                 var selectElement = document.getElementById("dropdown");
                 var selectedOption = selectElement.options[selectElement.selectedIndex].text;
             }
-
-            $(document).ready(function() {
-                $.ajax({
-                    url: "192.168.11.14:80/minhaya/genre_get.php.",
-                    type: "GET",
-                    dataType: "json",
-                    success: function(data) {
-                        // 取得したデータを処理する
-                        var genre = data;
-                        // ここでgenreを使ってHTML要素を操作するなどの処理を行う
-                        console.log(genre);
-                    },
-                    error: function(xhr, status, error) {
-                        console.log("Error: " + error);
-                    }
-                    });
-                    });
-
         </script>
     </body>
 </html>
